@@ -1,0 +1,35 @@
+
+{%extends 'base.html'%}
+
+
+{%block body%}
+<h1 class="text-primary">Edit User</h1>
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-4"></div>
+            <div class="col-4">
+                {%if messages%}
+                {%for m in messages%}
+                {{m}}
+                {%endfor%}
+                {%endif%}
+            </div>
+            <div class="col-4"></div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+<form method="post" enctype="multipart/form-data">
+    {%csrf_token%}
+    {{form.as_p}}
+
+    <button type="submit" class="btn btn-primary">EDIT</button>
+</form>
+        </div>
+        <div class="col-4"></div>
+    </div>
+    </div>
+    {%endblock%}
+    

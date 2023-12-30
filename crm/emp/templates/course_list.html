@@ -1,0 +1,53 @@
+
+{%extends 'base.html'%}
+
+
+{%block body%}
+<h1 class="text-center text-primary">Employee List</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+            {%if messages%}
+            {%for m in messages%}
+            {{m}}
+            {%endfor%}
+            {%endif%}
+        </div>
+        <div class="col-4"></div>
+    </div>
+</div>
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-2"></div>
+        <div class="col-8">
+           
+            <table class="table table-striped">
+                <tr>
+                    <th>Course Name</th>
+                    <th>Duration</th>
+                    <th>Fee</th>
+                    <th>Action</th>
+                    {% comment %} <th>Action</th> {% endcomment %}
+                </tr>
+                {%for c in courses%}
+                <tr>
+                    <td>{{c.course_name}} </td>
+                    <td> {{c.duration}}</td>
+                    <td>{{c.fees}}</td>
+                    
+                    <td>
+                        <a href="{%url 'course_detail' c.id%}"class="btn btn-outline-info">View</a>
+                        <a href="{%url 'course_delete' c.id%}"class="btn btn-outline-danger">Delete</a>
+                        <a href="{%url 'course_edit' c.id%}"class="btn btn-outline-primary">Edit</a>
+                    </td>
+                </tr>
+                {%endfor%}
+            </table>
+
+            </form>
+        </div>
+        <div class="col-2"></div>
+    </div>
+</div>
+{%endblock%}

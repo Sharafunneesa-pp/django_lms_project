@@ -1,0 +1,27 @@
+{%extends 'base.html'%}
+
+
+{%block body%}
+<h1 class="text-center text-primary mt-3">Employee detail</h1>
+   <div class="container">
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+            <div class="card" style="width: 18rem;">
+                <!-- {{employee.profile_pic.url}} -->
+                {%if employee.profilepic%}
+                <img src="{{employee.profilepic.url}}" height="">
+                {%endif%}
+                <div class="card-body">
+                  <h5 class="card-title">NAME: {{employee.name}}</h5>
+                  <p class="card-text">DEPARTMENT: {{employee.dept}}</p>
+                  <p class="card-text">SALARY: {{employee.salary}}</p>
+                  <p class="card-text">GENDER: {{employee.gender}}</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+        </div>
+        <div class="col-4"></div>
+    </div>
+   </div>
+   {%endblock%}

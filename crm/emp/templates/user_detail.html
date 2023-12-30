@@ -1,0 +1,54 @@
+
+{%extends 'base.html'%}
+
+
+{%block body%}
+<h1 class="text-center text-primary">User List</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+            {%if messages%}
+            {%for m in messages%}
+            {{m}}
+            {%endfor%}
+            {%endif%}
+        </div>
+        <div class="col-4"></div>
+    </div>
+</div>
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-2"></div>
+        <div class="col-8">
+           
+            <table class="table table-striped">
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>UserName</th>
+                    <th>Email</th>
+                    <th>Action</th>
+                   
+                </tr>
+                {%for u in user%}
+                <tr>
+                    <td>{{u.first_name}} </td>
+                    <td> {{u.last_name}}</td>
+                    <td>{{u.username}}</td>
+                    <td> {{u.email}}</td>
+                    <td>
+                        <a href="{%url 'user_list' u.id%}"class="btn btn-outline-info">View</a>
+                        <a href="{%url 'user_delete' u.id%}"class="btn btn-outline-danger">Delete</a>
+                        <a href="{%url 'user_edit' u.id%}"class="btn btn-outline-primary">Edit</a>
+                    </td>
+                </tr>
+                {%endfor%}
+            </table>
+
+            </form>
+        </div>
+        <div class="col-2"></div>
+    </div>
+</div>
+{%endblock%}

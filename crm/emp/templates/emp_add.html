@@ -1,0 +1,32 @@
+{%extends 'base.html'%}
+
+
+{%block body%}
+<div class="container">
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+            {%if messages%}
+            {%for m in messages%}
+            {{m}}
+            {%endfor%}
+            {%endif%}
+        </div>
+        <div class="col-4"></div>
+    </div>
+</div>
+<div class="container mt-5">
+    <div class="row">
+    <div class="col-4"></div>
+    <div class="col-4">
+<form method="post" enctype="multipart/form-data">
+{%csrf_token%}
+{{form.as_p}}
+
+<button type="submit" class="btn btn-primary">ADD EMPLOYEE</button>
+</form>
+    </div>
+    <div class="col-4"></div>
+</div>
+</div>
+{%endblock%}

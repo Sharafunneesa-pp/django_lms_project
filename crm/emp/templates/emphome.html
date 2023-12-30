@@ -1,0 +1,23 @@
+{%extends 'base.html'%}
+{%block body%}
+
+
+   <div class="container">
+    <div class="row mt-5">
+        <div class="col-6">
+            <div>
+                <a href="{%url 'emp_add'%}" class="form-control btn btn-info btn-lg py-5">Add New Employee</a>
+            </div>
+        </div>
+        <div class="col-6">
+<div>
+    <a href="{%url 'emp_list'%}" class="form-control btn btn-primary btn-lg py-5">View All Employee</a>
+</div>
+
+        </div>
+       
+    </div>
+   </div>
+
+
+{%endblock%}

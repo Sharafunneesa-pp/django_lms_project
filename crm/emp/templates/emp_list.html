@@ -1,0 +1,53 @@
+
+{%extends 'base.html'%}
+
+
+{%block body%}
+<h1 class="text-center text-primary">Employee List</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+            {%if messages%}
+            {%for m in messages%}
+            {{m}}
+            {%endfor%}
+            {%endif%}
+        </div>
+        <div class="col-4"></div>
+    </div>
+</div>
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-2"></div>
+        <div class="col-8">
+           
+            <table class="table table-striped">
+                <tr>
+                    <th>Name</th>
+                    <th>Department</th>
+                    <th>Gender</th>
+                    <th>Salary</th>
+                    <th>Action</th>
+                </tr>
+                {%for emp in employee%}
+                <tr>
+                    <td>{{emp.name}} </td>
+                    <td> {{emp.dept}}</td>
+                    <td>{{emp.gender}}</td>
+                    <td> {{emp.salary}}</td>
+                    <td>
+                        <a href="{%url 'emp_detail' emp.id%}"class="btn btn-outline-info">View</a>
+                        <a href="{%url 'emp_delete' emp.id%}"class="btn btn-outline-danger">Delete</a>
+                        <a href="{%url 'emp_edit' emp.id%}"class="btn btn-outline-primary">Edit</a>
+                    </td>
+                </tr>
+                {%endfor%}
+            </table>
+
+            </form>
+        </div>
+        <div class="col-2"></div>
+    </div>
+</div>
+{%endblock%}

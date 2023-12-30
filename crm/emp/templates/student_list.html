@@ -1,0 +1,69 @@
+
+{%extends 'base.html'%}
+
+
+{%block body%}
+<h1 class="text-center text-primary">Student List</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+            {%if messages%}
+            {%for m in messages%}
+            {{m}}
+            {%endfor%}
+            {%endif%}
+        </div>
+        <div class="col-4"></div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+<form action="" method="get">
+    {{filter.form.as_p}}
+    <input type="submit">
+</form>
+
+        </div>
+        <div class="col-4"></div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-2"></div>
+        <div class="col-8">
+           
+            <table class="table table-striped">
+                <tr>
+                    <th>Name</th>
+                    <th>Batch</th>
+                    <th>Phone Number</th>
+                    <th>Gender</th>
+                    <th>Email</th>
+                    <th>Action</th>
+                </tr>
+                {%for stud in filter.qs%}
+                <tr>
+                    <td>{{stud.user.first_name}}{{stud.user.last_name}} </td>
+                    <td> {{stud.batch.batch_name}}</td>
+                    <td>{{stud.user.phone}}</td>
+                    <td>{{stud.user.gender}}</td>
+                    <td> {{stud.user.email}}</td>
+                    <td>
+                        <a href=""class="btn btn-outline-info">View</a>
+                        <a href=""class="btn btn-outline-danger">Delete</a>
+                        <a href=""class="btn btn-outline-primary">Edit</a>
+                    </td>
+                </tr>
+                {%endfor%}
+            </table>
+
+            </form>
+        </div>
+        <div class="col-2"></div>
+    </div>
+</div>
+{%endblock%}

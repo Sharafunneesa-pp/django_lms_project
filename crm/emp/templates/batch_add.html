@@ -1,0 +1,59 @@
+{%extends 'base.html'%}
+
+
+{%block body%}
+<h1>Add New Batches</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+            {%if messages%}
+            {%for m in messages%}
+            {{m}}
+            {%endfor%}
+            {%endif%}
+        </div>
+        <div class="col-4"></div>
+    </div>
+</div>
+<div class="container mt-5">
+    <div class="row">
+    <div class="col-4"></div>
+    <div class="col-4">
+<form method="post" enctype="multipart/form-data">
+{%csrf_token%}
+{{form.as_p}}
+
+<button type="submit" class="btn btn-primary">ADD COURSE</button>
+</form>
+    </div>
+    <div class="col-4"></div>
+</div>
+</div>
+<hr>
+<div class="container">
+    <table class="table shadow p-2">
+        <tr>
+            <th>Name </th>
+            <th>Course</th>
+            <th>Status</th>
+            <th>Started Date</th>
+            <th>End Date</th>
+            <th>Action</th>
+            {%for b in batches%}
+            <tr>
+                <td>{{b.batch_name}}</td>
+                <td>{{b.duration}}</td>
+                <td>{{b.status}}</td>
+                <td>{{b.start_date}}</td>
+                <td>{{b.end_date}}</td>
+                <td><a href="{%url 'batch_edit' b.id%}"class="btn btn-outline-info">Edit</a>
+                    <a href=""class="btn btn-outline-primary">Detail</a>
+                    <a href=""class="btn btn-outline-danger">Delete</a></td>
+            </tr>
+            {%endfor%}
+        </tr>
+        
+    </table>
+</div>
+{%endblock%}

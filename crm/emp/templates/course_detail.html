@@ -1,0 +1,23 @@
+{%extends 'base.html'%}
+
+
+{%block body%}
+<h1 class="text-center text-primary mt-3">Course Detail</h1>
+   <div class="container">
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+            
+                <div class="card-body">
+                  <h5 class="card-title">NAME: {{courses.course_name}}</h5>
+                  <p class="card-text">DURATION: {{courses.duration}}</p>
+                  <p class="card-text">SALARY: {{courses.fees}}</p>
+                  
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+             
+       
+        <div class="col-4"></div>
+    </div>
+   </div>
+   {%endblock%}
